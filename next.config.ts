@@ -1,11 +1,23 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   images: {
-    domains: ['localhost', 'supabase.co'],
     remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'localhost',
+      },
       {
         protocol: 'https',
         hostname: '**.supabase.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'supabase.co',
       },
     ],
   },
@@ -21,6 +33,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
